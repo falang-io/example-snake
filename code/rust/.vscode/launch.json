@@ -1,0 +1,33 @@
+{
+  // Use IntelliSense to learn about possible attributes.
+  // Hover to view descriptions of existing attributes.
+  // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Debug Blinky",
+      "request": "launch",
+      "type": "cortex-debug",
+      "cwd": "${workspaceRoot}",
+      "executable": "${workspaceFolder}/target/thumbv7m-none-eabi/debug/rust",
+      //"svdFile": "${workspaceFolder}/STM32F7x6.svd",
+      "servertype": "openocd",
+      "configFiles": ["openocd.cfg"],
+
+      "preLaunchTask": "Cargo build",
+      // "init" -c "targets" -c "reset halt" -c "program $1 verify reset exit"
+      "preLaunchCommands": [
+        //"monitor gdb_sync",
+        //"stepi",
+        "monitor init",
+        "monitor reset init",
+        "monitor halt",
+        //"monitor flash write_image erase ./target/thumbv7m-none-eabi/debug/rust 0x08000000",
+        "monitor program  ./target/thumbv7m-none-eabi/debug/rust",
+        //"monitor program  ./target/thumbv7m-none-eabi/debug/rust verify",
+],
+      "showDevDebugOutput": "raw",
+      "postLaunchCommands": ["continue"] // Don't stop before at the first line
+}
+  ]
+}
