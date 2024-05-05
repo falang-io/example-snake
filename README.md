@@ -1,7 +1,7 @@
 
 Simple snake game created in Falang that runs on stm32 Discovery board (Rust) and in browser.
 
-To download falang ide: https://falang.io
+To download falang ide: [https://falang.io](https://falang.io)
 
 To build code run File -> "Build code" in application
 Для генерации когда нажмите Файл -> "Сгенерировать код" в приложении
@@ -15,6 +15,9 @@ Rust:
 TypeScript:
   Directory: code/ts
   Command: npm install && npm start
+
+[Video example](https://www.youtube.com/watch?v=-OPhNlZsEWo)
+  
 
 ![image](./snake.png)
 
