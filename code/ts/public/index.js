@@ -353,6 +353,18 @@
         pressedButton = 2 /* Right */;
       }
     });
+    document.getElementById("btn-up").addEventListener("click", () => {
+      pressedButton = 3 /* Top */;
+    });
+    document.getElementById("btn-down").addEventListener("click", () => {
+      pressedButton = 4 /* Bottom */;
+    });
+    document.getElementById("btn-left").addEventListener("click", () => {
+      pressedButton = 1 /* Left */;
+    });
+    document.getElementById("btn-right").addEventListener("click", () => {
+      pressedButton = 2 /* Right */;
+    });
     main({
       config: {
         cellSize: 40,
@@ -368,7 +380,6 @@
               GetButtonsState: async () => {
                 let btn = pressedButton;
                 pressedButton = 0 /* None */;
-                console.log("btn");
                 return {
                   bottom: btn == 4 /* Bottom */,
                   top: btn == 3 /* Top */,
@@ -400,5 +411,7 @@
       }
     });
   };
-  run();
+  window.addEventListener("load", function() {
+    run();
+  });
 })();

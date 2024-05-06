@@ -1,5 +1,5 @@
 import { IDrawRectParams, IDrawCircleParams } from './falang/GameApi';
-import { main as fMain } from "./falang/main";
+import { main } from "./falang/main";
 
 enum PressedButton {
   None,
@@ -36,7 +36,23 @@ const run = () => {
     }
   });
 
-  fMain({
+  (document.getElementById('btn-up') as HTMLButtonElement).addEventListener('click', () => {
+    pressedButton = PressedButton.Top;
+  });
+
+  (document.getElementById('btn-down') as HTMLButtonElement).addEventListener('click', () => {
+    pressedButton = PressedButton.Bottom;
+  });
+
+  (document.getElementById('btn-left') as HTMLButtonElement).addEventListener('click', () => {
+    pressedButton = PressedButton.Left;
+  });
+
+  (document.getElementById('btn-right') as HTMLButtonElement).addEventListener('click', () => {
+    pressedButton = PressedButton.Right;
+  });
+
+  main({
     config: {
       cellSize: 40,
       foodSize: 15,
@@ -51,7 +67,6 @@ const run = () => {
             GetButtonsState: async() => {
               let btn = pressedButton;
               pressedButton = PressedButton.None;
-              console.log('btn');
               return {
                 bottom: btn == PressedButton.Bottom,
                 top: btn == PressedButton.Top,
@@ -84,6 +99,9 @@ const run = () => {
   });
 }
 
-run();
+window.addEventListener('load', function() {
+  run();
+});
+
 
 

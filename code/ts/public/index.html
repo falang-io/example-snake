@@ -5,9 +5,15 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Falang Snake game</title>
   <style>
+    h1 {
+      margin-bottom: 5px;
+    }
     #canvas {
-      width: 800px;
-      height: 600px;
+      width: 100%;
+      max-width: 800px;
+      max-height: 600px;
+      aspect-ratio: 800/600;
+      height:100%;
       margin: auto;
       margin-top: 20px;
     } 
@@ -15,13 +21,31 @@
       background: #ccc;
       text-align: center;
     }
+    button {
+      width: 40px;
+      height: 40px;
+      text-align: center;
+      font-size: 30px;
+      font-weight: bold;
+    }
+    .buttons-top {
+      margin-bottom: 10px;
+    }
   </style>
 </head>
 <body style="margin: 0;">
   <h1>Snake game</h1>
-  <p>Press any arrow to start</p>
   <canvas id="canvas"></canvas>
 	<script src="./index.js"></script>
+  <div class='buttons'>
+    <div class='buttons-top'><button id='btn-up'>&#x2191;</button></div>
+    <div class='buttons-button'>
+      <button id='btn-left'>&#x2190;</button>
+      <button id='btn-down'>&#x2193;</button>
+      <button id='btn-right'>&#x2192;</button>
+    </div>
+    <br/><br/>
+  </div>
   <p><b><a href='https://falang.io'>falang.io</a></b></p>
 </body>
 </html>
